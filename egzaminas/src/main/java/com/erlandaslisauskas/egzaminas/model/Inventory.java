@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
+import java.time.Instant;
 import java.util.Date;
 
 @Entity
@@ -26,6 +27,12 @@ public class Inventory {
 
     public Inventory() {
 
+    }
+
+    public Inventory(@NotBlank String name, @NotBlank String weight, @NotBlank int sector) {
+        this.name = name;
+        this.weight = weight;
+        this.sector = sector;
     }
 
     public Long getId() {

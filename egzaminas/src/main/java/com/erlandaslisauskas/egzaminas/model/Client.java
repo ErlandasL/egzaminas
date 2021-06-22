@@ -25,12 +25,19 @@ public class Client {
     @OneToOne(cascade = CascadeType.DETACH)
     @JoinTable(name = "client_type", joinColumns = @JoinColumn(name = "client_id"), inverseJoinColumns = @JoinColumn(name = "client_type_id"))
     private ClientType clientType;
-    @OneToMany(mappedBy = "clientInventory", fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.EAGER)
     @JsonIgnore
     private List<Inventory> inventories;
 
     private Client() {
 
+    }
+
+    public Client(@NotBlank String firstName, @NotBlank String lastName, @NotBlank Date birthDate, @NotBlank String phoneNum) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthDate = birthDate;
+        this.phoneNum = phoneNum;
     }
 
     public Long getId() {
