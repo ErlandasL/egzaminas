@@ -26,4 +26,9 @@ public class InventoryController {
     public List<Inventory> getAllInventories() {
         return inventoryService.getAllInventories();
     }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteInventoryById(@PathVariable Long id) {
+        return inventoryService.deleteById(id);
+    }
 }

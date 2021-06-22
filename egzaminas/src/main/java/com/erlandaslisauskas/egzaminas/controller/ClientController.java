@@ -26,4 +26,9 @@ public class ClientController {
     public List<Client> getClients() {
         return clientService.getClients();
     }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteById(@PathVariable Long id) {
+        return clientService.deleteById(id);
+    }
 }

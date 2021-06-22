@@ -54,4 +54,11 @@ public class ClientService {
     public List<Client> getClients() {
         return clientRepository.findAll();
     }
+
+    @Transactional
+    public ResponseEntity<?> deleteById(Long id) {
+        clientRepository.deleteById(id);
+
+        return ResponseEntity.ok("client deleted");
+    }
 }

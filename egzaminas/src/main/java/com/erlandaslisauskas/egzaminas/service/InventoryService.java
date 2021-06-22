@@ -39,4 +39,11 @@ public class InventoryService {
     public List<Inventory> getAllInventories() {
         return inventoryRepository.findAll();
     }
+
+    @Transactional
+    public ResponseEntity<?> deleteById(Long id) {
+        inventoryRepository.deleteById(id);
+
+        return ResponseEntity.ok("Inventory deleted");
+    }
 }
